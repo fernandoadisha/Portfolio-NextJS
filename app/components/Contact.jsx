@@ -28,7 +28,7 @@ const Contact = () => {
                 hover:bg-[#000] duration-500'>Submit <Image src={assets.right_arrow_white} alt='rightarrow' className='w-4' />
                 </button>
 
-                <p className='mt-4'>Sending....</p>
+                <p className='mt-4'>Sending.....</p>
             </form>
 
         </div>
