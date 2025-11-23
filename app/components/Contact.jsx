@@ -1,8 +1,34 @@
 import { assets } from '@/assets/assets'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Contact = () => {
+
+    const [result, setResult] = useState("");
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setResult("Sending....");
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", "ce96e223-70cb-45b0-a0ae-7877c37fcfa3");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setResult("Form Submitted Successfully");
+            event.target.reset();
+        } else {
+            console.log("Error", data);
+            setResult(data.message);
+        }
+    };
+
     return (
         <div id="contact" className='w-full px-[12%] py-10 scroll-mt-20 bg-[url("/footer-bg-color.png")] bg-no-repeat bg-center 
         bg-[length 90%_auto]'>
@@ -13,22 +39,25 @@ const Contact = () => {
                 Contact me for all your inquaries and Id love be a part of your work
             </p>
 
-            <form className='max-w-2xl mx-auto'>
+            <form onSubmit={onSubmit} className='max-w-2xl mx-auto'>
                 <div className='grid grid-cols-2 gap-6 mt-10 mb-8'>
                     <input type="text" placeholder='Enter Your Name' name="" id="" required
-                        className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-[#fff]' />
+                        className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-[#fff]'
+                        name='name' />
                     <input type="email" placeholder='Enter Your Email' name="" id="" required
-                        className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-[#fff]' />
+                        className='flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-[#fff]'
+                        name='email' />
                 </div>
                 <textarea rows='6' placeholder='Enter your message' name="" id="" required
-                    className='w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-[#fff] mb-6'></textarea>
+                    className='w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-[#fff] mb-6'
+                    name='message'></textarea>
 
                 <button type='submit'
                     className='py-3 px-8 w-max flex items-center justify-between gap-2 bg-[#000]/80 text-[#fff] rounded-full mx-auto 
                 hover:bg-[#000] duration-500'>Submit <Image src={assets.right_arrow_white} alt='rightarrow' className='w-4' />
                 </button>
 
-                <p className='mt-4'>Sending.....</p>
+                <p className='mt-4'>{result}</p>
             </form>
 
         </div>
