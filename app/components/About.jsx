@@ -1,8 +1,28 @@
-import { assets, infoList, toolsData } from '@/assets/assets'
+// import { assets, infoList, toolsData } from '@/assets/assets'
+import { assets, toolsData } from '@/assets/assets'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const About = () => {
+
+    const [infoList, setInfoList] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('http://localhost:8080/api/info')
+            .then(res => res.json())
+            .then(data => {
+                setInfoList(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetcing info:', error);
+                setLoading(false);
+            })
+    }, []);
+
+    if (loading) return <div>Loading...</div>
+
     return (
         <div className='w-full px-[12%] py-10 scroll-mt-20' id='about'>
             <h4 className='text-center mb-2 text-lg font-Ovo'>Introduction</h4>
@@ -25,7 +45,9 @@ const About = () => {
                             <li className='border-[0.5px] border-grey-400 rounded-xl p-6 cursor-pointer hover:bg-[#fcf4ff] 
                             hover:-translate-y-1 duration-500 hover:shadow-[#000]'
                                 key={index}>
-                                <Image src={icon} alt={title} className='w-7 mt-3' />
+                                {/* <Image src={icon} alt={title} className='w-7 mt-3' width={28} height={28} /> */}
+                                <Image src={icon} alt={title} className='w-7 mt-3' width={28} height={28} />
+
                                 <h3 className='my-4 font-semibold text-grey-700'>{title}</h3>
                                 <p className='text-grey-600 text-sm'>{description}</p>
                             </li>
