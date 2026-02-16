@@ -1,8 +1,27 @@
-import { assets, workData } from '@/assets/assets'
+// import { assets, workData } from '@/assets/assets'
+import { assets } from '@/assets/assets'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Work = () => {
+
+    const [workData, setWorkData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        fetch('http://localhost:8080/api/work')
+            .then(res => res.json())
+            .then(data => {
+                setWorkData(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching info: ', error);
+                setLoading(false);
+            })
+    }, []);
+
+
     return (
         <div id="work" className='w-full px-[12%] py-10 scroll-mt-20'>
             <h4 className='text-center mb-2 text-lg font-Ovo'>My Portfolio</h4>
