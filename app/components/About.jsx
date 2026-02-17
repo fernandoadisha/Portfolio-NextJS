@@ -1,11 +1,12 @@
 // import { assets, infoList, toolsData } from '@/assets/assets'
-import { assets, toolsData } from '@/assets/assets'
+import { assets } from '@/assets/assets'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
 const About = () => {
 
     const [infoList, setInfoList] = useState([]);
+    const [toolsData, setToolsData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -13,6 +14,19 @@ const About = () => {
             .then(res => res.json())
             .then(data => {
                 setInfoList(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetcing info:', error);
+                setLoading(false);
+            })
+    }, []);
+
+    useEffect(() => {
+        fetch('http://localhost:8080/api/tools')
+            .then(res => res.json())
+            .then(data => {
+                setToolsData(data);
                 setLoading(false);
             })
             .catch(error => {
@@ -63,7 +77,7 @@ const About = () => {
                             <li className='flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg
                             cursoe-pointer hover:-translate-y-1 duration-500'
                                 key={index}>
-                                <Image src={tool} alt='Tool' className='w-5 sm:w-7' />
+                                <Image src={tool} alt='Tool' className='w-5 sm:w-7' width={14} height={14} />
                             </li>
                         ))}
                     </ul>
