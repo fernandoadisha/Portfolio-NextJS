@@ -22,6 +22,7 @@ const About = () => {
             })
     }, []);
 
+    // Get tools
     useEffect(() => {
         fetch('http://localhost:8080/api/tools')
             .then(res => res.json())
