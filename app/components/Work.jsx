@@ -9,7 +9,7 @@ const Work = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/work')
+        fetch('http://localhost:8080/data/work')
             .then(res => res.json())
             .then(data => {
                 setWorkData(data);

@@ -10,7 +10,7 @@ const About = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/info')
+        fetch('http://localhost:8080/data/info')
             .then(res => res.json())
             .then(data => {
                 setInfoList(data);
@@ -24,7 +24,7 @@ const About = () => {
 
     // Get tools
     useEffect(() => {
-        fetch('http://localhost:8080/api/tools')
+        fetch('http://localhost:8080/data/tools')
             .then(res => res.json())
             .then(data => {
                 setToolsData(data);

@@ -9,7 +9,7 @@ const Services = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/services')
+        fetch('http://localhost:8080/data/services')
             .then(res => res.json())
             .then(data => {
                 setServiceData(data);
