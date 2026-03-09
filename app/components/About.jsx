@@ -1,42 +1,42 @@
-// import { assets, infoList, toolsData } from '@/assets/assets'
+import { assets, infoList, toolsData } from '@/assets/assets'
 import { assets } from '@/assets/assets'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
 const About = () => {
 
-    const [infoList, setInfoList] = useState([]);
-    const [toolsData, setToolsData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // const [infoList, setInfoList] = useState([]);
+    // const [toolsData, setToolsData] = useState([]);
+    // const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetch('http://localhost:8080/data/info')
-            .then(res => res.json())
-            .then(data => {
-                setInfoList(data);
-                setLoading(false);
-            })
-            .catch(error => {
-                console.error('Error fetcing info:', error);
-                setLoading(false);
-            })
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:8080/data/info')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setInfoList(data);
+    //             setLoading(false);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetcing info:', error);
+    //             setLoading(false);
+    //         })
+    // }, []);
 
-    // Get tools
-    useEffect(() => {
-        fetch('http://localhost:8080/data/tools')
-            .then(res => res.json())
-            .then(data => {
-                setToolsData(data);
-                setLoading(false);
-            })
-            .catch(error => {
-                console.error('Error fetcing info:', error);
-                setLoading(false);
-            })
-    }, []);
+    // // Get tools
+    // useEffect(() => {
+    //     fetch('http://localhost:8080/data/tools')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setToolsData(data);
+    //             setLoading(false);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetcing info:', error);
+    //             setLoading(false);
+    //         })
+    // }, []);
 
-    if (loading) return <div>Loading...</div>
+    // if (loading) return <div>Loading...</div>
 
     return (
         <div className='w-full px-[12%] py-10 scroll-mt-20' id='about'>
