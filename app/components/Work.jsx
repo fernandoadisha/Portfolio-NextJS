@@ -1,25 +1,25 @@
-// import { assets, workData } from '@/assets/assets'
-import { assets } from '@/assets/assets'
+import { assets, workData } from '@/assets/assets'
+// import { assets } from '@/assets/assets'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 
 const Work = () => {
 
-    const [workData, setWorkData] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // const [workData, setWorkData] = useState([]);
+    // const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        fetch('http://localhost:8080/data/work')
-            .then(res => res.json())
-            .then(data => {
-                setWorkData(data);
-                setLoading(false);
-            })
-            .catch(error => {
-                console.error('Error fetching info: ', error);
-                setLoading(false);
-            })
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:8080/data/work')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setWorkData(data);
+    //             setLoading(false);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching info: ', error);
+    //             setLoading(false);
+    //         })
+    // }, []);
 
 
     return (

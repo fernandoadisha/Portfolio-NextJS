@@ -1,27 +1,27 @@
-// import { assets, serviceData } from '@/assets/assets'
-import { assets } from '@/assets/assets'
+import { assets, serviceData } from '@/assets/assets'
+// import { assets } from '@/assets/assets'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
 const Services = () => {
 
-    const [serviceData, setServiceData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // const [serviceData, setServiceData] = useState([]);
+    // const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetch('http://localhost:8080/data/services')
-            .then(res => res.json())
-            .then(data => {
-                setServiceData(data);
-                setLoading(false);
-            })
-            .catch(error => {
-                console.error('Error fetcing info:', error);
-                setLoading(false);
-            })
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:8080/data/services')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setServiceData(data);
+    //             setLoading(false);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetcing info:', error);
+    //             setLoading(false);
+    //         })
+    // }, []);
 
-    if (loading) return <div>Loading...</div>
+    // if (loading) return <div>Loading...</div>
 
     return (
         <div className='w-full px-[12%] py-10 scroll-mt-20' id='services'>
