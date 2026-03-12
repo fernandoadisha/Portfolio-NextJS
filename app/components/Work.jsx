@@ -28,7 +28,7 @@ const Work = () => {
             <h2 className='text-center text-5xl font-Ovo'>My Lastest Work</h2>
 
             <p className='text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo'>
-                Welcome to my development portfolio! This section contains the most impactful work I have being done!
+                Over the course of life, I have done many projects, here are some of the work I have done.
             </p>
 
             <div className='grid sm:grid-cols-2 lg:sm:grid-cols-4 my-10 gap-5 '>

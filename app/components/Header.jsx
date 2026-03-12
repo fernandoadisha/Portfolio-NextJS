@@ -12,7 +12,7 @@ function Header() {
             >Hi! I am Adhisha Fernando <Image src={assets.hand_icon} alt='handicon' className='w-6' /></h3>
             <h1 className='text-3xl sm:text-6xl lg:text-[66px] font-Ovo'>Software Engineer based on Colombo</h1>
             <p className='max-w-2xl mx-auto font-Ovo'>
-                Hello This is place holder value for the a little description of myself...
+                2 Year experienced Software Engineer working with multiple technologies range from IOT realted technologies like ESP32, Embedded programming to technologies like NodeJS, SpringBoot, Angular, Next to AI
             </p>
             <div className='flex flex-col sm:flex-row items-center gap-4 mt-4'>
                 <a href='#contact'
