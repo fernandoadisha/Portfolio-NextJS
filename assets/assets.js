@@ -100,10 +100,10 @@ export const workData = [
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience...', link: '' },
-    { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
+    { icon: assets.web_icon, title: 'Web Application Development', description: 'I provide service with developing web applcation tailer made for you need', link: '' },
+    { icon: assets.mobile_icon, title: 'Mobile appication Development', description: 'Develop simple mobile applcation to support your smaller needs', link: '' },
+    { icon: assets.ui_icon, title: 'IOT Application Development', description: 'I can deliver you with IOT solutions to modernise your house, track your progress and more', link: '' },
+    { icon: assets.graphics_icon, title: 'Mangement Systems Deveopment', description: 'I can help developing management system to your needs from invertory amangement to time management', link: '' },
 ]
 
 export const infoList = [
