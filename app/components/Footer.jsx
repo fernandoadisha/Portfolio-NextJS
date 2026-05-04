@@ -3,8 +3,20 @@ import Image from 'next/image'
 import React from 'react'
 
 const Footer = () => {
+
+
+
+
     return (
         <div className='mt-20'>
+            <div className='text-center'>
+                Completion of the Year
+                <br />
+                <p>
+                    33.33334%
+                </p>
+            </div>
+
             <div className='text-center'>
                 <Image src={assets.logo} alt='logo' className='w-36 mx-auto' />
 
