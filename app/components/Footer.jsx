@@ -1,12 +1,33 @@
 import { assets } from '@/assets/assets'
 import Image from 'next/image'
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const Footer = () => {
 
+    const [percentage, setPercentage] = useState(0);
+    const percRef = useRef(null);
+
+    const startCounting = () => {
+
+        // Getting the time since the year start
+        const currentYear = new Date().getFullYear();
+        const firstDatOfYear = new Date(currentYear, 0, 1, 0, 0); // In JS month indexes start from 0
+        const lastDayOfYear = new Date(currentYear, 11, 31, 23, 59);
+
+        const yearStart = firstDatOfYear.getTime();
+        const yearEnd = lastDayOfYear.getTime();
+        const curretnTime = Date.now();
+
+        const timePassed = curretnTime - yearStart;
 
 
+        percRef.current = setInterval(() => {
+            setPercentage((timePassed / yearEnd) * 100)
+        }, 1000) // Update every 1000ms
+
+
+    }
 
     return (
         <div className='mt-20'>
@@ -14,7 +35,7 @@ const Footer = () => {
                 Completion of the Year
                 <br />
                 <p>
-                    33.33334%
+                    {percentage}%
                 </p>
             </div>
 
