@@ -23,11 +23,14 @@ const Footer = () => {
 
 
         percRef.current = setInterval(() => {
+            console.log("Refresh Happened!")
             setPercentage((timePassed / yearEnd) * 100)
         }, 1000) // Update every 1000ms
 
 
     }
+
+    // startCounting();
 
     return (
         <div className='mt-20'>
