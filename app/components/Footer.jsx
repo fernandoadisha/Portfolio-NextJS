@@ -8,29 +8,27 @@ const Footer = () => {
     const [percentage, setPercentage] = useState(0);
     const percRef = useRef(null);
 
-    const startCounting = () => {
-
-        // Getting the time since the year start
+    useEffect(() => {
         const currentYear = new Date().getFullYear();
-        const firstDatOfYear = new Date(currentYear, 0, 1, 0, 0); // In JS month indexes start from 0
-        const lastDayOfYear = new Date(currentYear, 11, 31, 23, 59);
+        const firstDayOfYear = new Date(currentYear, 0, 1, 0, 0, 0); // In JS month indexes start from 0
+        const lastDayOfYear = new Date(currentYear, 11, 31, 23, 59, 59);
 
-        const yearStart = firstDatOfYear.getTime();
+        const yearStart = firstDayOfYear.getTime();
         const yearEnd = lastDayOfYear.getTime();
-        const curretnTime = Date.now();
-
-        const timePassed = curretnTime - yearStart;
-
+        const totalYearDuration = yearEnd - yearStart;
 
         percRef.current = setInterval(() => {
-            console.log("Refresh Happened!")
-            setPercentage((timePassed / yearEnd) * 100)
-        }, 1000) // Update every 1000ms
+            const currentTime = Date.now();
+            const timePassed = currentTime - yearStart;
+            const calculatedPercentage = (timePassed / totalYearDuration) * 100;
 
+            setPercentage(calculatedPercentage.toFixed(4));
+        }, 1000); // Update every 1000ms
 
-    }
-
-    // startCounting();
+        return () => {
+            if (percRef.current) clearInterval(percRef.current);
+        };
+    }, []);
 
     return (
         <div className='mt-20'>
