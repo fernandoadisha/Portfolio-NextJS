@@ -22,7 +22,7 @@ const Footer = () => {
             const timePassed = currentTime - yearStart;
             const calculatedPercentage = (timePassed / totalYearDuration) * 100;
 
-            setPercentage(calculatedPercentage.toFixed(4));
+            setPercentage(calculatedPercentage.toFixed(6));
         }, 1000); // Update every 1000ms
 
         return () => {
