@@ -52,7 +52,8 @@ const About = () => {
                 <div className='flex-1'>
                     <p className='mb-10 max-w-2xl font-Ovo'>
                         I am a expericed developer who focused on IOT development, .Net development and RPA development
-                        I have worked at MAS Kreeda as Intern and currently working as Software Engineer at TeeJay Lanka
+                        I have worked at MAS Kreeda as Intern and currently working as Software Engineer at TeeJay Lanka focused on .Net
+                        development with several automation projects
                     </p>
 
                     <ul className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>

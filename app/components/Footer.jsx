@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 const Footer = () => {
 
     const [percentage, setPercentage] = useState(0);
+    const [lifePercntage, setLifePercentage] = useState(0);
     const percRef = useRef(null);
 
     useEffect(() => {
@@ -13,16 +14,28 @@ const Footer = () => {
         const firstDayOfYear = new Date(currentYear, 0, 1, 0, 0, 0); // In JS month indexes start from 0
         const lastDayOfYear = new Date(currentYear, 11, 31, 23, 59, 59);
 
+        const birthDate = new Date(2000, 8, 11, 0, 0, 0);
+        const DieDate = new Date(2070, 8, 11, 23, 59, 59);
+
         const yearStart = firstDayOfYear.getTime();
         const yearEnd = lastDayOfYear.getTime();
         const totalYearDuration = yearEnd - yearStart;
+
+        const birthStart = birthDate.getTime();
+        const birthend = DieDate.getTime(); // Vasically die day (if die at 50)
+        const totalLifeDuration = birthend - birthStart;
 
         percRef.current = setInterval(() => {
             const currentTime = Date.now();
             const timePassed = currentTime - yearStart;
             const calculatedPercentage = (timePassed / totalYearDuration) * 100;
 
+            const lifePassed = currentTime - birthStart;
+            const calculateLifePerc = (lifePassed / totalLifeDuration) * 100;
+
+
             setPercentage(calculatedPercentage.toFixed(6));
+            setLifePercentage(calculateLifePerc.toFixed(8));
         }, 1000); // Update every 1000ms
 
         return () => {
@@ -37,6 +50,14 @@ const Footer = () => {
                 <br />
                 <p>
                     {percentage}%
+                </p>
+            </div>
+
+            <div className='text-center'>
+                Life Completion
+                <br />
+                <p>
+                    {lifePercntage}%
                 </p>
             </div>
 
